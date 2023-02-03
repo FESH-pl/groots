@@ -263,6 +263,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: ed5b7cda44bdac94cb26685ff69f27c0, type: 3}
     - target: {fileID: 2946627870941675476, guid: 820120f1b576df142b70364dfda0cfd8, type: 3}
+      propertyPath: happy
+      value: 
+      objectReference: {fileID: 21300000, guid: 53a72b7e531db6b47b43fd65968f0506, type: 3}
+    - target: {fileID: 2946627870941675476, guid: 820120f1b576df142b70364dfda0cfd8, type: 3}
+      propertyPath: upset
+      value: 
+      objectReference: {fileID: 21300000, guid: 033604ba1fac480458de90daf5477c3a, type: 3}
+    - target: {fileID: 2946627870941675476, guid: 820120f1b576df142b70364dfda0cfd8, type: 3}
+      propertyPath: neutral
+      value: 
+      objectReference: {fileID: 21300000, guid: ed5b7cda44bdac94cb26685ff69f27c0, type: 3}
+    - target: {fileID: 2946627870941675476, guid: 820120f1b576df142b70364dfda0cfd8, type: 3}
       propertyPath: playerName
       value: Player 2
       objectReference: {fileID: 0}
@@ -296,7 +308,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1901406523}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -369,11 +381,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2946627870941675473, guid: 820120f1b576df142b70364dfda0cfd8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.38
+      value: 5.09
       objectReference: {fileID: 0}
     - target: {fileID: 2946627870941675473, guid: 820120f1b576df142b70364dfda0cfd8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.19
+      value: -1.12
       objectReference: {fileID: 0}
     - target: {fileID: 2946627870941675473, guid: 820120f1b576df142b70364dfda0cfd8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -407,6 +419,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2946627870941675476, guid: 820120f1b576df142b70364dfda0cfd8, type: 3}
+      propertyPath: happy
+      value: 
+      objectReference: {fileID: 21300000, guid: e88fd159866e49c4da23135738107de2, type: 3}
+    - target: {fileID: 2946627870941675476, guid: 820120f1b576df142b70364dfda0cfd8, type: 3}
+      propertyPath: upset
+      value: 
+      objectReference: {fileID: 21300000, guid: 4105932741a4b784aabb235142f8950a, type: 3}
+    - target: {fileID: 2946627870941675476, guid: 820120f1b576df142b70364dfda0cfd8, type: 3}
+      propertyPath: neutral
+      value: 
+      objectReference: {fileID: 21300000, guid: 247b19109880fe44782a6beabf398fe1, type: 3}
     - target: {fileID: 2946627870941675476, guid: 820120f1b576df142b70364dfda0cfd8, type: 3}
       propertyPath: playerName
       value: Player 1
