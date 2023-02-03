@@ -35,6 +35,9 @@ public class PlayerBehaviour : MonoBehaviour
     /// <param name="item">item that collided with player</param>
     private void OnCollisionEnter2D(Collision2D item)
     {
+        Debug.Log("OnCollisionEnter2D");
+
+
         if(item.gameObject.tag == "Good")
         {
             // TODO: handle points better
@@ -65,6 +68,7 @@ public class PlayerBehaviour : MonoBehaviour
     private void UpdateScore(int points)
     {
         score += points;
+        Debug.Log(playerName + ":  " + score);
     }
 
     /// <summary>
@@ -73,7 +77,7 @@ public class PlayerBehaviour : MonoBehaviour
     /// <returns></returns>
     private IEnumerator BackToNeutralFace()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.8f);
         spriteRenderer.sprite = neutral;
     }
 
