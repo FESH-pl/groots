@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Score : MonoBehaviour
+public class PlayerBehaviour : MonoBehaviour
 {
     // For testing
     public string playerName;
@@ -14,17 +14,15 @@ public class Score : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
-    void Start()
+    private void OnCollisionEnter2D(Collision2D item)
     {
-        Debug.Log(playerName + " created");
+
     }
 
-
-    void Update()
+    private void UpdateScore(int points)
     {
-        
+        score += points;
     }
-
 
     // For testing
     // TODO: remove
@@ -34,8 +32,4 @@ public class Score : MonoBehaviour
         Debug.Log(playerName + ":  " + score);
     }
 
-    public void UpdateScore(int points)
-    {
-        score += points;
-    }
 }
