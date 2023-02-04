@@ -289,6 +289,7 @@ MonoBehaviour:
   carrotBottom: {fileID: 4461768865285013160, guid: dc3bb41dadcc9f1459290c5f0446fc8d, type: 3}
   player1: {fileID: 87398386}
   player2: {fileID: 1495230479}
+  winnerText: {fileID: 1271972194}
 --- !u!4 &788446837
 Transform:
   m_ObjectHideFlags: 0
@@ -480,7 +481,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class ScoreScreenBehaviour : MonoBehaviour
 {
@@ -9,7 +11,7 @@ public class ScoreScreenBehaviour : MonoBehaviour
     public GameObject carrotBottom;
     public GameObject player1;
     public GameObject player2;
-    //public Text
+    public TextMeshProUGUI winnerText;
 
     private bool startScoring;
     private float maxPullSpeed = 1f;
@@ -23,6 +25,7 @@ public class ScoreScreenBehaviour : MonoBehaviour
     private int p2Score = 20;
     private bool p1Done = false;
     private bool p2Done = false;
+    private bool endState = false;
 
     void Awake()
     {
@@ -77,7 +80,13 @@ public class ScoreScreenBehaviour : MonoBehaviour
             {
                 pullSpeed += pullSpeedIncrease;
             }
-            
+
+            if (p1Done && p2Done && !endState)
+            {
+                StartCoroutine(AnnounceWinner());
+                endState = true;
+            }
+
         }
     }
 
@@ -90,6 +99,16 @@ public class ScoreScreenBehaviour : MonoBehaviour
     IEnumerator AnnounceWinner()
     {
         yield return new WaitForSeconds(2);
-
+        if(p1Score > p2Score)
+        {
+            winnerText.text = "Red Player Wins!";
+        } else if(p2Score > p1Score)
+        {
+            winnerText.text = "Blue Player Wins!";
+        } else
+        {
+            //TIE
+        }
+        
     }
 }
