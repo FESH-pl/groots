@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
             countdownTime--;
         }
 
-        countdownDisplay.text = "GO!";
+        countdownDisplay.text = "GROW!";
 
         StartCoroutine(MatchTimer(matchDuration));
 
