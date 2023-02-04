@@ -15,7 +15,7 @@ public class ItemSpawning : MonoBehaviour
     private float minSpawnTime = 0.75f; //every 0.5 = 1 sec
     private float maxSpawnTime = 2.25f;
 
-    private float spawnOffset = 70f;
+    private float spawnOffset = 150f;
 
     private float minBorbSpeed = 4f;
     private float maxBorbSpeed = 7f;
@@ -26,12 +26,10 @@ public class ItemSpawning : MonoBehaviour
         if (secondSpawner)
         {
             transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.nearClipPlane));
-            
         }
         else
         {
             transform.position = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.nearClipPlane));
-            
         }
 
         timeTillNextObject = Random.Range(minSpawnTime, maxSpawnTime);
@@ -44,21 +42,20 @@ public class ItemSpawning : MonoBehaviour
         {
             GameObject o;
             float randomNumber = Random.Range(0f, 1f);
-            //Debug.Log(randomNumber);
+
             if (randomNumber < goodObjectSpawnChance)
             {
                 o = Instantiate(goodItem, transform.position, transform.rotation);
-                //Debug.Log("good");
+
             } else
             {
                 o = Instantiate(badItem, transform.position, transform.rotation);
-                //Debug.Log("bad");
+
             }
             float actualOffset = Random.Range(-spawnOffset, spawnOffset);
             o.transform.position = new Vector3(o.transform.position.x + actualOffset, o.transform.position.y - actualOffset);
             o.GetComponent<Rigidbody2D>().AddForce((otherSpawner.position - transform.position) * Random.Range(minBorbSpeed, maxBorbSpeed));
             timeTillNextObject = Random.Range(minSpawnTime, maxSpawnTime);
         }
-
     }
 }

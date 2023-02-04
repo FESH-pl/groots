@@ -37,7 +37,6 @@ public class PlayerBehaviour : MonoBehaviour
 
         if(item.gameObject.tag == "Good")
         {
-            // TODO: handle points better
             UpdateScore(1);
 
             // Set sprite to happy and set coroutine to return to neutral
@@ -48,7 +47,6 @@ public class PlayerBehaviour : MonoBehaviour
         }
         else if (item.gameObject.tag == "Bad")
         {
-            // TODO: handle points better
             UpdateScore(-1);
 
             // Set sprite to upset and set coroutine to return to neutral
@@ -56,8 +54,6 @@ public class PlayerBehaviour : MonoBehaviour
             if (lastCoroutine != null) StopCoroutine(lastCoroutine);
             lastCoroutine = StartCoroutine(BackToNeutralFace());
         }
-
-        // TODO: particle effects?
 
         Destroy(item.gameObject);
     }

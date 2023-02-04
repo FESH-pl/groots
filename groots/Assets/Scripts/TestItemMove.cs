@@ -8,7 +8,5 @@ public class TestItemMove : MonoBehaviour
     void FixedUpdate()
     {
         transform.position += new Vector3(0.05f, 0, 0);
-
-        
     }
 }
