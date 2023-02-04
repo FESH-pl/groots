@@ -32,7 +32,7 @@ public class Draggable : MonoBehaviour
         Vector2 givenVelocity = transform.position - _lastPosition[_lastPosition.Length - 1];
         gameObject.GetComponent<Rigidbody2D>().velocity = givenVelocity * multiplier;
 
-        if (!trail.emitting) trail.emitting = true;
+        if (trail != null && !trail.emitting) trail.emitting = true;
     }
 
 }

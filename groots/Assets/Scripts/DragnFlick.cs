@@ -26,7 +26,7 @@ public class DragnFlick : MonoBehaviour
     void Update()
     {
         // disable input during countdown
-        if (gameManager.countdownTime > 0)
+        if (gameManager != null && gameManager.countdownTime > 0)
             return;
 
         for(int i=0;i<Input.touchCount; i++)
