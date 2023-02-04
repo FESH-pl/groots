@@ -17,7 +17,8 @@ public class ItemSpawning : MonoBehaviour
 
     private float spawnOffset = 70f;
 
-    private float borbSpeed = 4f;
+    private float minBorbSpeed = 4f;
+    private float maxBorbSpeed = 7f;
 
     void Awake()
     {
@@ -55,7 +56,7 @@ public class ItemSpawning : MonoBehaviour
             }
             float actualOffset = Random.Range(-spawnOffset, spawnOffset);
             o.transform.position = new Vector3(o.transform.position.x + actualOffset, o.transform.position.y - actualOffset);
-            o.GetComponent<Rigidbody2D>().AddForce((otherSpawner.position - transform.position) * borbSpeed);
+            o.GetComponent<Rigidbody2D>().AddForce((otherSpawner.position - transform.position) * Random.Range(minBorbSpeed, maxBorbSpeed));
             timeTillNextObject = Random.Range(minSpawnTime, maxSpawnTime);
         }
 
