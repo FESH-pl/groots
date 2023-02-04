@@ -17,7 +17,7 @@ public class CameraFit : MonoBehaviour
         float desiredRatio = transform.localScale.x / transform.localScale.y;
 
 
-        if(screenRatio > desiredRatio)
+        if(screenRatio < desiredRatio)
         {
             float height = screenSize.y;
             transform.localScale = new Vector3(height * desiredRatio, height);
