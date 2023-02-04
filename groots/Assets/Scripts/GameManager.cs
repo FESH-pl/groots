@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(MatchTimer(10));
+        StartCoroutine(MatchTimer(60));
 
         players = GameObject.FindGameObjectsWithTag("Player");
 
