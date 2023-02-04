@@ -33,7 +33,7 @@ public class PlayerBehaviour : MonoBehaviour
     /// Destroys item
     /// </summary>
     /// <param name="item">item that collided with player</param>
-    private void OnCollisionEnter2D(Collision2D item)
+    private void OnTriggerEnter2D(Collider2D item)
     {
         Debug.Log("OnCollisionEnter2D");
 
