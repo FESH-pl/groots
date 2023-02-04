@@ -9,6 +9,7 @@ public class ScoreScreenBehaviour : MonoBehaviour
     public GameObject carrotBottom;
     public GameObject player1;
     public GameObject player2;
+    //public Text
 
     private bool startScoring;
     private float maxPullSpeed = 1f;
@@ -18,6 +19,10 @@ public class ScoreScreenBehaviour : MonoBehaviour
     private float amountPulled = 0f;
     private int segments1 = 0;
     private int segments2 = 0;
+    private int p1Score = 10;
+    private int p2Score = 20;
+    private bool p1Done = false;
+    private bool p2Done = false;
 
     void Awake()
     {
@@ -32,20 +37,43 @@ public class ScoreScreenBehaviour : MonoBehaviour
 
         if (startScoring)
         {
-            player1.transform.position = new Vector3(player1.transform.position.x, player1.transform.position.y + pullSpeed, player1.transform.position.z);
-            player2.transform.position = new Vector3(player2.transform.position.x, player2.transform.position.y + pullSpeed, player2.transform.position.z);
+            //if (!p1Done)
+            //{
+                player1.transform.position = new Vector3(player1.transform.position.x, player1.transform.position.y + pullSpeed, player1.transform.position.z);
+            //}
+            //if (!p2Done)
+            //{
+                player2.transform.position = new Vector3(player2.transform.position.x, player2.transform.position.y + pullSpeed, player2.transform.position.z);
+            //}
+
             amountPulled += pullSpeed;
-            if(segments1 < (int)amountPulled)
+            if(segments1 < p1Score && segments1 < (int)amountPulled)
             {
                 segments1++;
                 GameObject o1 = Instantiate(carrotMiddle, player1.transform);
-                GameObject o2 = Instantiate(carrotMiddle, player2.transform);
-
                 o1.transform.position = new Vector3(o1.transform.position.x, o1.transform.position.y - segments1, o1.transform.position.z);
+            } else if (segments1 >= p1Score && !p1Done)
+            {
+                segments1++;
+                GameObject o1 = Instantiate(carrotBottom, player1.transform);
+                o1.transform.position = new Vector3(o1.transform.position.x, o1.transform.position.y - segments1, o1.transform.position.z);
+                p1Done = true;
+            }
+            if(segments2 < p2Score && segments2 < (int)amountPulled)
+            {
+                segments2++;
+                GameObject o2 = Instantiate(carrotMiddle, player2.transform);
                 o2.transform.position = new Vector3(o2.transform.position.x, o2.transform.position.y - segments2, o2.transform.position.z);
             }
-            
-            if(!(pullSpeed >= maxPullSpeed))
+            else if (segments2 >= p2Score && !p2Done)
+            {
+                segments2++;
+                GameObject o2 = Instantiate(carrotBottom, player2.transform);
+                o2.transform.position = new Vector3(o2.transform.position.x, o2.transform.position.y - segments2, o2.transform.position.z);
+                p2Done = true;
+            }
+
+            if (!(pullSpeed >= maxPullSpeed))
             {
                 pullSpeed += pullSpeedIncrease;
             }
@@ -55,7 +83,13 @@ public class ScoreScreenBehaviour : MonoBehaviour
 
     IEnumerator StartDelay()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1);
         startScoring = true;
+    }
+    
+    IEnumerator AnnounceWinner()
+    {
+        yield return new WaitForSeconds(2);
+
     }
 }
