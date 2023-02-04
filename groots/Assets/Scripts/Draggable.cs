@@ -9,7 +9,7 @@ public class Draggable : MonoBehaviour
 
     void Awake()
     {
-        _lastPosition = new Vector3[10];
+        _lastPosition = new Vector3[20];
     }
 
     void Update()
