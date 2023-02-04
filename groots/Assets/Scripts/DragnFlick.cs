@@ -14,14 +14,21 @@ public class DragnFlick : MonoBehaviour
 
     public int _velocityMultiplier = 20;
 
+    private GameManager gameManager;
+
     void Awake()
     {
         //_lastPosition = new Vector3[10]; //only for mouse use
         _touchList = new Dictionary<int, Draggable>();
+        gameManager = gameObject.GetComponent<GameManager>();
     }
 
     void Update()
     {
+        // disable input during countdown
+        if (gameManager.countdownTime > 0)
+            return;
+
         for(int i=0;i<Input.touchCount; i++)
         {
             Touch t = Input.GetTouch(i);
