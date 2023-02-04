@@ -11,7 +11,7 @@ public class PlayerBehaviour : MonoBehaviour
     public Sprite happy;
     public Sprite upset;
 
-    private int score = 0;
+    public int score = 0;
 
     private SpriteRenderer spriteRenderer;
 
@@ -22,7 +22,6 @@ public class PlayerBehaviour : MonoBehaviour
     /// </summary>
     private void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
@@ -35,8 +34,6 @@ public class PlayerBehaviour : MonoBehaviour
     /// <param name="item">item that collided with player</param>
     private void OnTriggerEnter2D(Collider2D item)
     {
-        Debug.Log("OnCollisionEnter2D");
-
 
         if(item.gameObject.tag == "Good")
         {
@@ -68,7 +65,6 @@ public class PlayerBehaviour : MonoBehaviour
     private void UpdateScore(int points)
     {
         score += points;
-        Debug.Log(playerName + ":  " + score);
     }
 
     /// <summary>
@@ -79,19 +75,6 @@ public class PlayerBehaviour : MonoBehaviour
     {
         yield return new WaitForSeconds(0.8f);
         spriteRenderer.sprite = neutral;
-    }
-
-    // For testing
-    // TODO: remove
-    private void OnMouseDown()
-    {
-        UpdateScore(1);
-        Debug.Log(playerName + ":  " + score);
-        spriteRenderer.sprite = happy;
-
-
-        if(lastCoroutine != null) StopCoroutine(lastCoroutine);
-        lastCoroutine = StartCoroutine(BackToNeutralFace());
     }
 
 }

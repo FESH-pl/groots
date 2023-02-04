@@ -5,10 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    
+    GameObject[] players;
+
     void Start()
     {
-        StartCoroutine(MatchTimer(60));
+        StartCoroutine(MatchTimer(10));
+
+        players = GameObject.FindGameObjectsWithTag("Player");
+
     }
 
 
@@ -19,6 +23,18 @@ public class GameManager : MonoBehaviour
         {
             counter += Time.deltaTime;
             yield return null;
+        }
+
+        // Save scores
+        foreach(GameObject playerObject in players)
+        {
+            var player = playerObject.GetComponent<PlayerBehaviour>();
+            var playerName = player.playerName;
+            var score = player.score;
+
+            Debug.Log(playerName + ": " + score);
+
+            PlayerPrefs.SetInt(playerName, score);
         }
 
         // End the Match

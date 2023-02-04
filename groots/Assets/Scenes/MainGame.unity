@@ -391,7 +391,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a830ac4cfacf0494b9e2de5af0428e02, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8018868, g: 0.7589308, b: 0.69143826, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -637,7 +637,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: ed5b7cda44bdac94cb26685ff69f27c0, type: 3}
     - target: {fileID: 2946627870941675476, guid: 820120f1b576df142b70364dfda0cfd8, type: 3}
       propertyPath: playerName
-      value: Player 2
+      value: p2
       objectReference: {fileID: 0}
     - target: {fileID: 2946627870941675477, guid: 820120f1b576df142b70364dfda0cfd8, type: 3}
       propertyPath: m_Name
@@ -730,7 +730,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 247b19109880fe44782a6beabf398fe1, type: 3}
     - target: {fileID: 2946627870941675476, guid: 820120f1b576df142b70364dfda0cfd8, type: 3}
       propertyPath: playerName
-      value: Player 1
+      value: p1
       objectReference: {fileID: 0}
     - target: {fileID: 2946627870941675477, guid: 820120f1b576df142b70364dfda0cfd8, type: 3}
       propertyPath: m_Name
