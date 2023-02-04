@@ -2,16 +2,44 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    GameObject[] players;
+    public TextMeshProUGUI countdownDisplay;
+    public int countdownTime = 3;
+
+    private GameObject[] players;
+
+    private float matchDuration = 60f;
 
     void Start()
     {
-        StartCoroutine(MatchTimer(60));
+        StartCoroutine(CountDown());
 
         players = GameObject.FindGameObjectsWithTag("Player");
+
+    }
+
+    IEnumerator CountDown()
+    {
+        while(countdownTime > 0)
+        {
+            countdownDisplay.text = countdownTime.ToString();
+
+            yield return new WaitForSeconds(1f);
+
+            countdownTime--;
+        }
+
+        countdownDisplay.text = "GO!";
+
+        StartCoroutine(MatchTimer(matchDuration));
+
+        yield return new WaitForSeconds(1f);
+
+        countdownDisplay.gameObject.SetActive(false);
 
     }
 
