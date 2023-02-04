@@ -8,7 +8,8 @@ public class ItemSpawning : MonoBehaviour
     public GameObject badItem;
     public bool secondSpawner;
     public Transform otherSpawner;
-    public float goodObjectSpawnChance = 0.7f;
+
+    private float goodObjectSpawnChance = 0.7f;
 
     private float timeTillNextObject;
     private float minSpawnTime = 0.75f; //every 0.5 = 1 sec
@@ -41,12 +42,16 @@ public class ItemSpawning : MonoBehaviour
         if (timeTillNextObject <= 0f)
         {
             GameObject o;
-            if(Random.Range(0f,1f) > goodObjectSpawnChance)
+            float randomNumber = Random.Range(0f, 1f);
+            //Debug.Log(randomNumber);
+            if (randomNumber < goodObjectSpawnChance)
             {
                 o = Instantiate(goodItem, transform.position, transform.rotation);
+                //Debug.Log("good");
             } else
             {
                 o = Instantiate(badItem, transform.position, transform.rotation);
+                //Debug.Log("bad");
             }
             float actualOffset = Random.Range(-spawnOffset, spawnOffset);
             o.transform.position = new Vector3(o.transform.position.x + actualOffset, o.transform.position.y - actualOffset);
