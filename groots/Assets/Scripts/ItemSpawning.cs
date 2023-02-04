@@ -8,13 +8,15 @@ public class ItemSpawning : MonoBehaviour
     public GameObject badItem;
     public bool secondSpawner;
     public Transform otherSpawner;
-    public float goodObjectSpawnChance = 0.5f;
+    public float goodObjectSpawnChance = 0.7f;
 
     private float timeTillNextObject;
     private float minSpawnTime = 0.75f; //every 0.5 = 1 sec
-    private float maxSpawnTime = 3f;
+    private float maxSpawnTime = 2.25f;
 
-    private float spawnOffset = 0.5f;
+    private float spawnOffset = 70f;
+
+    private float borbSpeed = 4f;
 
     void Awake()
     {
@@ -48,7 +50,7 @@ public class ItemSpawning : MonoBehaviour
             }
             float actualOffset = Random.Range(-spawnOffset, spawnOffset);
             o.transform.position = new Vector3(o.transform.position.x + actualOffset, o.transform.position.y - actualOffset);
-            o.GetComponent<Rigidbody2D>().AddForce((otherSpawner.position - transform.position) * 2f);
+            o.GetComponent<Rigidbody2D>().AddForce((otherSpawner.position - transform.position) * borbSpeed);
             timeTillNextObject = Random.Range(minSpawnTime, maxSpawnTime);
         }
 
