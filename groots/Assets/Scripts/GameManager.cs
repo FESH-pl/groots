@@ -60,8 +60,6 @@ public class GameManager : MonoBehaviour
             var playerName = player.playerName;
             var score = player.score;
 
-            Debug.Log(playerName + ": " + score);
-
             PlayerPrefs.SetInt(playerName, score);
         }
 
