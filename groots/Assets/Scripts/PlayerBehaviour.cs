@@ -17,12 +17,36 @@ public class PlayerBehaviour : MonoBehaviour
 
     private Coroutine lastCoroutine = null;
 
+    //variables for pot animation
+    private bool goLeft = true;
+    private float distanceTraveled = 5f;
+    private float animationSpeed = 0.02f;
+
     /// <summary>
     /// Makes sure player game object won't be destroyed on new scene load
     /// </summary>
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    private void Update()
+    {
+        if(goLeft && distanceTraveled < 10)
+        {
+            distanceTraveled += animationSpeed;
+            transform.Rotate(new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z), animationSpeed);
+        } else if(!goLeft && distanceTraveled < 10)
+        {
+            distanceTraveled += animationSpeed;
+            transform.Rotate(new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z), -animationSpeed);
+        }
+        else
+        {
+            goLeft = !goLeft;
+            distanceTraveled = 0f;
+        }
+
     }
 
     /// <summary>
