@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Draggable : MonoBehaviour
 {
+    public TrailRenderer trail;
     public bool _isDragged = false;
     private Vector3[] _lastPosition;
 
@@ -32,6 +33,7 @@ public class Draggable : MonoBehaviour
         Vector2 givenVelocity = transform.position - _lastPosition[_lastPosition.Length - 1];
         gameObject.GetComponent<Rigidbody2D>().velocity = givenVelocity * multiplier;
         //Debug.Log(givenVelocity);
+        if (!trail.emitting) trail.emitting = true;
     }
 
 }
