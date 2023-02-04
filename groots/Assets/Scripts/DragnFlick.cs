@@ -37,6 +37,7 @@ public class DragnFlick : MonoBehaviour
                         draggable._isDragged = true;
                         draggable.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2();
                         _touchList.Add(t.fingerId, draggable);
+                        
                     }
                     else
                     {
@@ -53,7 +54,7 @@ public class DragnFlick : MonoBehaviour
                 if (_touchList[t.fingerId])
                 {
                     _touchList[t.fingerId].transform.position = new Vector2(_worldPosition.x, _worldPosition.y);
-                    _touchList[t.fingerId].UpdatePosition();
+                    //_touchList[t.fingerId].UpdatePosition();
                 }
                 
             } 
