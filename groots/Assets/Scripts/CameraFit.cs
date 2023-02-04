@@ -16,11 +16,6 @@ public class CameraFit : MonoBehaviour
         float screenRatio = screenSize.x / screenSize.y;
         float desiredRatio = transform.localScale.x / transform.localScale.y;
 
-        Debug.Log("bottomLeft: " + bottomLeft);
-        Debug.Log("topRight: " + topRight);
-
-        Debug.Log("screenSize: " + screenSize);
-        Debug.Log("desiredRatio: " + desiredRatio);
 
         if(screenRatio > desiredRatio)
         {
