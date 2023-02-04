@@ -29,6 +29,8 @@ public class ScoreScreenBehaviour : MonoBehaviour
 
     void Awake()
     {
+        p1Score = PlayerPrefs.GetInt("p1");
+        p2Score = PlayerPrefs.GetInt("p2");
         Instantiate(carrotTop, player1.transform);
         Instantiate(carrotTop, player2.transform);
         StartCoroutine(StartDelay());

@@ -1,0 +1,76 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class FireworksManager : MonoBehaviour
+{
+    public GameObject fireworks;
+
+    private float fireworksTimer1;
+    private float fireworksTimer2;
+    private float fireworksTimer3;
+    private float fireworksTimer4;
+
+    private GameObject fireworks1;
+    private GameObject fireworks2;
+    private GameObject fireworks3;
+    private GameObject fireworks4;
+
+    void Awake()
+    {
+        transform.position = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.nearClipPlane));
+        resetTimer(fireworksTimer1);
+        resetTimer(fireworksTimer2);
+        resetTimer(fireworksTimer3);
+        resetTimer(fireworksTimer4);
+    }
+
+    void FixedUpdate()
+    {
+        fireworksTimer1 -= 0.02f;
+        fireworksTimer2 -= 0.02f;
+        fireworksTimer3 -= 0.02f;
+        fireworksTimer4 -= 0.02f;
+
+        if(fireworksTimer1 <= 0f)
+        {
+            resetTimer(fireworksTimer1);
+            fireworks1 = Instantiate(fireworks, transform);
+            fireworks1.transform.position = new Vector3(Random.Range(0f, Screen.width), Random.Range(0f, Screen.height), fireworks1.transform.position.z);
+            StartCoroutine(fireworksLifetime(fireworks1));
+        }
+        if (fireworksTimer2 <= 0f)
+        {
+            resetTimer(fireworksTimer2);
+            fireworks2 = Instantiate(fireworks, transform);
+            fireworks2.transform.position = new Vector3(Random.Range(0f, Screen.width), Random.Range(0f, Screen.height), fireworks2.transform.position.z);
+            StartCoroutine(fireworksLifetime(fireworks2));
+        }
+        if (fireworksTimer3 <= 0f)
+        {
+            resetTimer(fireworksTimer3);
+            fireworks3 = Instantiate(fireworks, transform);
+            fireworks3.transform.position = new Vector3(Random.Range(0f, Screen.width), Random.Range(0f, Screen.height), fireworks3.transform.position.z);
+            StartCoroutine(fireworksLifetime(fireworks3));
+        }
+        if (fireworksTimer4 <= 0f)
+        {
+            resetTimer(fireworksTimer4);
+            fireworks4 = Instantiate(fireworks, transform);
+            fireworks4.transform.position = new Vector3(Random.Range(0f, Screen.width), Random.Range(0f, Screen.height), fireworks4.transform.position.z);
+            StartCoroutine(fireworksLifetime(fireworks4));
+        }
+    }
+
+    private void resetTimer(float timer)
+    {
+        timer = Random.Range(1.1f, 3f);
+    }
+
+    IEnumerator fireworksLifetime(GameObject fireworks)
+    {
+        yield return new WaitForSeconds(1);
+
+        Destroy(fireworks);
+    }
+}
