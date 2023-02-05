@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
-
+    /*code used when countdown was not integrated in music file.
     //public AudioClip countdownFile;
     public AudioSource source;
 
@@ -27,5 +27,19 @@ public class MusicManager : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         countdownDone = true;
+    }*/
+
+    public AudioSource musicSource;
+    public float musicDelay = 0.3f;
+
+    private void Awake()
+    {
+        StartCoroutine(WaitForCountDown());
+    }
+
+    IEnumerator WaitForCountDown()
+    {
+        yield return new WaitForSecondsRealtime(musicDelay);
+        musicSource.Play();
     }
 }
