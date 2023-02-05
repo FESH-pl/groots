@@ -13,7 +13,7 @@ public class ItemSpawning : MonoBehaviour
 
     private float timeTillNextObject;
     private float minSpawnTime = 0.75f; //every 0.5 = 1 sec
-    private float maxSpawnTime = 2.25f;
+    private float maxSpawnTime = 1.25f;
 
     private float spawnOffset = 150f;
 
