@@ -5,21 +5,28 @@ using UnityEngine.SceneManagement;
 
 public class TitlePlayBehaviour : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D item)
+    public GameObject leftGrandma;
+    public GameObject rightGrandma;
+
+    private bool pressedPlay = false;
+    private void OnMouseDown()
     {
-        if (item.gameObject.tag == "Good")
+        pressedPlay = true;
+        StartCoroutine(LoadGameScene());
+    }
+
+    private void FixedUpdate()
+    {
+        if (pressedPlay)
         {
-            // TODO: grandma animation
-
-            SceneManager.LoadScene("MainGame");
+            leftGrandma.transform.position = new Vector3(leftGrandma.transform.position.x - 0.1f, leftGrandma.transform.position.y, leftGrandma.transform.position.z);
+            rightGrandma.transform.position = new Vector3(rightGrandma.transform.position.x + 0.1f, rightGrandma.transform.position.y, rightGrandma.transform.position.z);
         }
-        else if (item.gameObject.tag == "Bad")
-        {
-            // TODO: confirm if they want to quit
+    }
 
-            // TODO: respawn item (or quit)
-        }
-
-
+    private IEnumerator LoadGameScene()
+    {
+        yield return new WaitForSeconds(1.3f);
+        SceneManager.LoadScene("MainGame");
     }
 }
