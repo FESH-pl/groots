@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
 
     private GameObject[] players;
 
-    private float matchDuration = 60f;
+    private float matchDuration = 63f;
 
     void Start()
     {
@@ -63,6 +63,8 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt(playerName, score);
         }
 
+        countdownDisplay.gameObject.SetActive(true);
+        countdownDisplay.text = "FINISHED!";
         // End the Match
         SceneManager.LoadScene("WinScreen");
     }
