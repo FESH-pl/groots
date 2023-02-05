@@ -307,7 +307,7 @@ MonoBehaviour:
   pot2: {fileID: 1636864352}
   soundEffect: {fileID: 788446838}
   cymbalSound: {fileID: 8300000, guid: eb3d0020eefac2b4ea43710c07386b1d, type: 3}
-  fanfare: {fileID: 8300000, guid: ac997cb8742b6944a9b31b23ffd944bf, type: 3}
+  fanfare: {fileID: 8300000, guid: 7cc41937044c54a4fad9150308e9ef81, type: 3}
 --- !u!4 &788446837
 Transform:
   m_ObjectHideFlags: 0
@@ -723,8 +723,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 64
+  m_fontSizeBase: 64
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
