@@ -307,6 +307,7 @@ MonoBehaviour:
   pot2: {fileID: 1636864352}
   soundEffect: {fileID: 788446838}
   cymbalSound: {fileID: 8300000, guid: eb3d0020eefac2b4ea43710c07386b1d, type: 3}
+  fanfare: {fileID: 8300000, guid: ac997cb8742b6944a9b31b23ffd944bf, type: 3}
 --- !u!4 &788446837
 Transform:
   m_ObjectHideFlags: 0
@@ -332,11 +333,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 7f2819785dd31594cbbe693c41d1ba45, type: 3}
+  m_audioClip: {fileID: 8300000, guid: aa18021651dd17144bdb45b87c7d3587, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
