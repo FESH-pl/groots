@@ -17,6 +17,8 @@ public class ScoreScreenBehaviour : MonoBehaviour
     public TextMeshProUGUI winnerText;
     public GameObject fireworks;
 
+    public AudioSource drumEffect;
+
     private bool startScoring;
     private float maxPullSpeed = 1f;
     private float pullSpeed = 0.001f;
@@ -125,6 +127,7 @@ public class ScoreScreenBehaviour : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         startScoring = true;
+        drumEffect.Play();
     }
     
     IEnumerator AnnounceWinner()
