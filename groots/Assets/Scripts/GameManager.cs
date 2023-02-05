@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 {
     public TextMeshProUGUI countdownDisplay;
     public int countdownTime = 3;
+    public AudioSource musicSource;
+    public AudioClip finishedClip;
 
     private GameObject[] players;
 
@@ -65,6 +67,14 @@ public class GameManager : MonoBehaviour
 
         countdownDisplay.gameObject.SetActive(true);
         countdownDisplay.text = "FINISHED!";
+        StartCoroutine(EndMatch());
+        
+    }
+
+    IEnumerator EndMatch()
+    {
+        yield return new WaitForSeconds(2f);
+
         // End the Match
         SceneManager.LoadScene("WinScreen");
     }

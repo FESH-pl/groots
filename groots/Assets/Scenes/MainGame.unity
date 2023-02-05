@@ -210,6 +210,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countdownDisplay: {fileID: 1014867344}
   countdownTime: 3
+  musicSource: {fileID: 0}
+  finishedClip: {fileID: 0}
 --- !u!4 &387400127
 Transform:
   m_ObjectHideFlags: 0
@@ -891,7 +893,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -118.756744, y: 0, z: -118.756775, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
