@@ -24,6 +24,7 @@ public class ScoreScreenBehaviour : MonoBehaviour
 
     public AudioSource soundEffect;
     public AudioClip cymbalSound;
+    public AudioClip fanfare;
 
     private bool startScoring;
     private float maxPullSpeed = 1f;
@@ -159,6 +160,14 @@ public class ScoreScreenBehaviour : MonoBehaviour
         {
             winnerText.text = "It's a tie!";
         }
-        
+
+        StartCoroutine(fanfareSound());
+
+    }
+
+    IEnumerator fanfareSound()
+    {
+        yield return new WaitForSeconds(1.5f);
+        soundEffect.PlayOneShot(fanfare);
     }
 }
