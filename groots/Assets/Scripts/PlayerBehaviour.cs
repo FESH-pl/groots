@@ -13,14 +13,11 @@ public class PlayerBehaviour : MonoBehaviour
 
     public int score = 0;
 
+    public PlayerAnimationControler animationControler;
+
     private SpriteRenderer spriteRenderer;
 
     private Coroutine lastCoroutine = null;
-
-    //variables for pot animation
-    private bool goLeft = true;
-    private float distanceTraveled = 5f;
-    private float animationSpeed = 0.02f;
 
     /// <summary>
     /// Makes sure player game object won't be destroyed on new scene load
@@ -28,25 +25,6 @@ public class PlayerBehaviour : MonoBehaviour
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-    }
-
-    private void Update()
-    {
-        if(goLeft && distanceTraveled < 10)
-        {
-            distanceTraveled += animationSpeed;
-            transform.Rotate(new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z), animationSpeed);
-        } else if(!goLeft && distanceTraveled < 10)
-        {
-            distanceTraveled += animationSpeed;
-            transform.Rotate(new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z), -animationSpeed);
-        }
-        else
-        {
-            goLeft = !goLeft;
-            distanceTraveled = 0f;
-        }
-
     }
 
     /// <summary>
@@ -67,6 +45,7 @@ public class PlayerBehaviour : MonoBehaviour
             spriteRenderer.sprite = happy;
             if (lastCoroutine != null) StopCoroutine(lastCoroutine);
             lastCoroutine = StartCoroutine(BackToNeutralFace());
+            animationControler.getHit();
 
         }
         else if (item.gameObject.tag == "Bad")
@@ -77,6 +56,7 @@ public class PlayerBehaviour : MonoBehaviour
             spriteRenderer.sprite = upset;
             if (lastCoroutine != null) StopCoroutine(lastCoroutine);
             lastCoroutine = StartCoroutine(BackToNeutralFace());
+            animationControler.getHit();
         }
 
         Destroy(item.gameObject);
