@@ -19,8 +19,8 @@ public class TitlePlayBehaviour : MonoBehaviour
     {
         if (pressedPlay)
         {
-            leftGrandma.transform.position = new Vector3(leftGrandma.transform.position.x - 0.1f, leftGrandma.transform.position.y, leftGrandma.transform.position.z);
-            rightGrandma.transform.position = new Vector3(rightGrandma.transform.position.x + 0.1f, rightGrandma.transform.position.y, rightGrandma.transform.position.z);
+            leftGrandma.transform.position = new Vector3(leftGrandma.transform.position.x - 20f, leftGrandma.transform.position.y, leftGrandma.transform.position.z);
+            rightGrandma.transform.position = new Vector3(rightGrandma.transform.position.x + 20f, rightGrandma.transform.position.y, rightGrandma.transform.position.z);
         }
     }
 
