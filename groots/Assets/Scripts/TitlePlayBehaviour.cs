@@ -32,7 +32,7 @@ public class TitlePlayBehaviour : MonoBehaviour
 
     private IEnumerator LoadGameScene()
     {
-        yield return new WaitForSeconds(1.3f);
+        yield return new WaitForSeconds(1.4f);
         SceneManager.LoadScene("MainGame");
     }
 }
