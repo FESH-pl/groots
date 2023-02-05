@@ -16,6 +16,11 @@ public class ScoreScreenBehaviour : MonoBehaviour
     public GameObject player2;
     public TextMeshProUGUI winnerText;
     public GameObject fireworks;
+    public GameObject backButton;
+
+    public GameObject background;
+    public GameObject pot1;
+    public GameObject pot2;
 
     public AudioSource soundEffect;
     public AudioClip cymbalSound;
@@ -135,16 +140,24 @@ public class ScoreScreenBehaviour : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         fireworks.SetActive(true);
+        FireworksManager fm = fireworks.GetComponent<FireworksManager>();
+        backButton.SetActive(true);
+        background.SetActive(false);
+        pot1.SetActive(false);
+        pot2.SetActive(false);
+        soundEffect.Stop();
         soundEffect.PlayOneShot(cymbalSound);
         if(p1Score > p2Score)
         {
-            winnerText.text = "Red Player Wins!";
+            winnerText.text = "Grandma Akari Wins!";
+            fm.winnerColor = Color.red;
         } else if(p2Score > p1Score)
         {
-            winnerText.text = "Blue Player Wins!";
+            winnerText.text = "Grandma Ruriko Wins!";
+            fm.winnerColor = Color.blue;
         } else
         {
-            //TIE
+            winnerText.text = "It's a tie!";
         }
         
     }

@@ -53,6 +53,9 @@ TagManager:
   - name: Items
     uniqueID: 2284703871
     locked: 0
+  - name: Button
+    uniqueID: 2301444381
+    locked: 0
   - name: Fireworks
     uniqueID: 3901831921
     locked: 0
