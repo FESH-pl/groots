@@ -33,8 +33,8 @@ public class ScoreScreenBehaviour : MonoBehaviour
 
     void Awake()
     {
-        p1Score = PlayerPrefs.GetInt("p1");
-        p2Score = PlayerPrefs.GetInt("p2");
+        //p1Score = PlayerPrefs.GetInt("p1");
+        //p2Score = PlayerPrefs.GetInt("p2");
         //Instantiate(p1carrotTop, player1.transform);
         //Instantiate(p2carrotTop, player2.transform);
         
