@@ -16,6 +16,8 @@ public class FireworksManager : MonoBehaviour
     private GameObject fireworks3;
     private GameObject fireworks4;
 
+    public Color winnerColor = Color.gray;
+
     void Awake()
     {
         transform.position = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.nearClipPlane));
@@ -37,6 +39,8 @@ public class FireworksManager : MonoBehaviour
             //resetTimer(fireworksTimer1);
             fireworksTimer1 = Random.Range(1.1f, 3f);
             fireworks1 = Instantiate(fireworks, transform);
+            ParticleSystem.MainModule ms = fireworks1.GetComponent<ParticleSystem>().main;
+            ms.startColor = winnerColor;
             fireworks1.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(0f, Screen.width), Random.Range(0f, Screen.height), 10));
             StartCoroutine(fireworksLifetime(fireworks1));
         }
@@ -45,6 +49,8 @@ public class FireworksManager : MonoBehaviour
             //resetTimer(fireworksTimer2);
             fireworksTimer2 = Random.Range(1.1f, 3f);
             fireworks2 = Instantiate(fireworks, transform);
+            ParticleSystem.MainModule ms = fireworks2.GetComponent<ParticleSystem>().main;
+            ms.startColor = winnerColor;
             fireworks2.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(0f, Screen.width), Random.Range(0f, Screen.height), 10));
             StartCoroutine(fireworksLifetime(fireworks2));
         }
@@ -53,6 +59,8 @@ public class FireworksManager : MonoBehaviour
             //resetTimer(fireworksTimer3);
             fireworksTimer3 = Random.Range(1.1f, 3f);
             fireworks3 = Instantiate(fireworks, transform);
+            ParticleSystem.MainModule ms = fireworks3.GetComponent<ParticleSystem>().main;
+            ms.startColor = winnerColor;
             fireworks3.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(0f, Screen.width), Random.Range(0f, Screen.height), 10));
             StartCoroutine(fireworksLifetime(fireworks3));
         }
@@ -61,6 +69,8 @@ public class FireworksManager : MonoBehaviour
             //resetTimer(fireworksTimer4);
             fireworksTimer4 = Random.Range(1.1f, 3f);
             fireworks4 = Instantiate(fireworks, transform);
+            ParticleSystem.MainModule ms = fireworks4.GetComponent<ParticleSystem>().main;
+            ms.startColor = winnerColor;
             fireworks4.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(0f, Screen.width), Random.Range(0f, Screen.height), 10));
             StartCoroutine(fireworksLifetime(fireworks4));
         }
