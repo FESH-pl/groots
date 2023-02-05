@@ -17,7 +17,8 @@ public class ScoreScreenBehaviour : MonoBehaviour
     public TextMeshProUGUI winnerText;
     public GameObject fireworks;
 
-    public AudioSource drumEffect;
+    public AudioSource soundEffect;
+    public AudioClip cymbalSound;
 
     private bool startScoring;
     private float maxPullSpeed = 1f;
@@ -35,8 +36,8 @@ public class ScoreScreenBehaviour : MonoBehaviour
 
     void Awake()
     {
-        //p1Score = PlayerPrefs.GetInt("p1");
-        //p2Score = PlayerPrefs.GetInt("p2");
+        p1Score = PlayerPrefs.GetInt("p1");
+        p2Score = PlayerPrefs.GetInt("p2");
         //Instantiate(p1carrotTop, player1.transform);
         //Instantiate(p2carrotTop, player2.transform);
         
@@ -127,13 +128,14 @@ public class ScoreScreenBehaviour : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         startScoring = true;
-        drumEffect.Play();
+        soundEffect.Play();
     }
     
     IEnumerator AnnounceWinner()
     {
         yield return new WaitForSeconds(2);
         fireworks.SetActive(true);
+        soundEffect.PlayOneShot(cymbalSound);
         if(p1Score > p2Score)
         {
             winnerText.text = "Red Player Wins!";

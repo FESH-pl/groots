@@ -301,7 +301,8 @@ MonoBehaviour:
   player2: {fileID: 1495230479}
   winnerText: {fileID: 1271972194}
   fireworks: {fileID: 1020972511}
-  drumEffect: {fileID: 788446838}
+  soundEffect: {fileID: 788446838}
+  cymbalSound: {fileID: 8300000, guid: eb3d0020eefac2b4ea43710c07386b1d, type: 3}
 --- !u!4 &788446837
 Transform:
   m_ObjectHideFlags: 0
